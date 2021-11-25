@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-website-2
+  labels:
+    app: static-website-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: static-website-2
+  template:
+    metadata:
+      labels:
+        app: static-website-2
+    spec:
+      containers:
+      - name: orders
+        image: amit894/static-website-2:1.0.0
+        ports:
+        - containerPort: 80
