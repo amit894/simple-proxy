@@ -1,25 +1,22 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: "networking.k8s.io/v1"
+kind: "Ingress"
 metadata:
-  name: rgate
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: "example-ingress"
 spec:
   rules:
-    - host: rgate
-      http:
-        paths:
-          - path: /static-website-1/
-            pathType: Prefix
-            backend:
-              service:
-                name: static-website-1
-                port:
-                  number: 80
-          - path: /static-website-2/
-            pathType: Prefix
-            backend:
-              service:
-                name: static-website-2
-                port:
-                  number: 80
+  - http:
+      paths:
+      - path: "/static-1"
+        pathType: "Prefix"
+        backend:
+          service:
+            name: "static-website-1"
+            port:
+              number: 80
+      - path:  "/static-2"
+        pathType: "Prefix"
+        backend:
+          service:
+            name: "static-website-2"
+            port:
+              number: 80
