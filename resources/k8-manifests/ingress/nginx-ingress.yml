@@ -3,6 +3,11 @@ kind: "Ingress"
 metadata:
   name: "example-ingress"
 spec:
+  defaultBackend:
+    service:
+      name: "static-website-1"
+      port:
+        number: 80
   rules:
   - http:
       paths:
