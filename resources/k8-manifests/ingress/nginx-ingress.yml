@@ -1,7 +1,7 @@
 apiVersion: "networking.k8s.io/v1"
 kind: "Ingress"
 metadata:
-  name: "example-ingress"
+  name: "rgate"
 spec:
   defaultBackend:
     service:
@@ -9,7 +9,8 @@ spec:
       port:
         number: 80
   rules:
-  - http:
+  - host: rgate
+    http:
       paths:
       - path: "/static-1"
         pathType: "Prefix"
